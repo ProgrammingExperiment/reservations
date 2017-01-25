@@ -1,14 +1,14 @@
-package hello;
+package com;
 
 public class Reservation{
 	
 	private final long id;
-	private final String location;
+	private final Site location;
 	private final String checkInDate;
 	private final String checkOutDate;
 	private final String reservationNumber;
 	
-	public Reservation( long _id, String _checkInDate, String _checkOutDate, String _reservationNumber, String _location ){
+	public Reservation( long _id, String _checkInDate, String _checkOutDate, String _reservationNumber, Site _location ){
 		this.id = _id;
 		this.checkInDate  = _checkInDate;
 		this.checkOutDate = _checkOutDate;
@@ -21,7 +21,7 @@ public class Reservation{
 		return this.id;
 	}
 	
-	public String getLocation(){
+	public Site getLocation(){
 		return this.location;
 	}
 	

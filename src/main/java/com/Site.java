@@ -5,6 +5,7 @@ public class Site {
 	private long id;
 	
 	//Constructor
+	// it initiates every new 'Site' you create.
 	public Site( long id, String name){
 		this.name =name;
 		this.id = id;		
@@ -13,6 +14,7 @@ public class Site {
 	public String getName(){
 		return this.name;
 	}
+	
 	public long getId(){
 		return this.id;
 	}

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Reservation;
 import com.Site;
+import com.Inventory;
 
 @RestController
 public class ReservationController {
@@ -19,9 +20,9 @@ public class ReservationController {
 			"2017/12/12",
 			"2017/12/12",
 			"LKSJDLKJ",
-			new Site(1,"Puerto Vallarta")
+			new Site(1,"Puerto Vallarta"),
+			new Inventory(1,"Penthouse","PNT1", "Penthouse Villa Delux")
 			);
-		
 		return res;
     }
     
@@ -29,12 +30,9 @@ public class ReservationController {
     public List<Reservation> reservations(){
     		List<Reservation> list = new ArrayList<Reservation>();
     			
-    		list.add( new Reservation(
-    				2,
-    				"2017/12/12",
-    				"2017/12/12",
-    				"LKSJDLKJ",
-    				new Site(2,"Pekin")
+    		list.add( new Reservation(2,"2017/12/12","2017/12/12","LKSJDLKJ",
+    				new Site(2,"Pekin"),
+    				new Inventory(1,"Penthouse","PNT1", "Penthouse Villa Delux")
     				)
     			);
     		list.add( new Reservation(
@@ -42,7 +40,8 @@ public class ReservationController {
     				"2017/12/12",
     				"2017/12/12",
     				"LKSJDLKJ",
-    				new Site(3,"Havana")
+    				new Site(3,"Havana"),
+    				new Inventory(1,"Penthouse","PNT1", "Penthouse Villa Delux")
     				)
     			);
     		list.add( new Reservation(
@@ -50,7 +49,8 @@ public class ReservationController {
     				"2017/12/12",
     				"2017/12/12",
     				"LKSJDLKJ",
-    				new Site(4,"Mexico")
+    				new Site(4,"Mexico"),
+    				new Inventory(1,"Penthouse","PNT1", "Penthouse Villa Delux")
     				)
     			);
     		

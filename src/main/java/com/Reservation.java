@@ -2,15 +2,23 @@ package com;
 
 public class Reservation{
 	
-	private final long id;
-	private final Site location;
-	private final Inventory inventory;
-	private final String checkInDate;
-	private final String checkOutDate;
-	private final String reservationNumber;
+	private  long id;
+	private  Site location;
+	private  Inventory inventory;
+	private  String checkInDate;
+	private  String checkOutDate;
+	private  String reservationNumber;
 	
 	//Constructor
 	// it initiates every new 'Reservation' you create.	
+	public Reservation(){
+		this.id = 0;
+		this.checkInDate  = "";
+		this.checkOutDate = "";
+		this.reservationNumber = "";
+		this.location = null;
+		this.inventory= null;
+	}
 	public Reservation( long _id, 
 			String _checkInDate, 
 			String _checkOutDate, 

@@ -1,14 +1,17 @@
 package com;
 
 public class Site {
-	private String name;
-	private long id;
+	 private String name;
+	 private long id;
 	
 	//Constructor
 	// it initiates every new 'Site' you create.
-	public Site( long id, String name){
+	public Site(){
+		
+	}
+	 public Site( long id, String name){
 		this.name =name;
-		this.id = id;		
+		this	.id = id;		
 	}
 	
 	public String getName(){
@@ -18,4 +21,11 @@ public class Site {
 	public long getId(){
 		return this.id;
 	}
-}
+	
+	public void setName(String name){
+		 this.name = name;
+	}
+	
+	public void setId(long id){
+		 this.id=id;
+	}}

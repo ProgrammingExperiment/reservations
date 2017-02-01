@@ -21,7 +21,7 @@ public class SiteController {
 	
 	@RequestMapping(value="/sites")
 	public List<Site> getSites(){
-		loadSiteRepo();
+		recallSiteRepoMemory();
 		return siteRepo;
 	}
 	
@@ -30,7 +30,7 @@ public class SiteController {
 		
 		// call out your app memory, so we can remember
 		// what we may have done in any past calls to the app
-		loadSiteRepo();
+		recallSiteRepoMemory();
 		
 		//return the site, if it's found
 		for(Site r : siteRepo){
@@ -50,11 +50,11 @@ public class SiteController {
 	}
 	
 	public static void saveIntoSiteRepo(Site s){
-		loadSiteRepo();
+		recallSiteRepoMemory();
 		siteRepo.add(s);
 	}
 	
-	public static void loadSiteRepo(){		
+	public static void recallSiteRepoMemory(){		
 		// we will mimic loading data from a permanent data store (i.e. database)
 		// then once we load it we will not reload it
 		if(siteRepo.isEmpty()){

@@ -1,6 +1,7 @@
 package com.api.models;
 
 public class Site {
+
     private String name;
     private long id;
 

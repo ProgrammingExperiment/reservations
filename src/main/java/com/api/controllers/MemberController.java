@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,13 +65,24 @@ public class MemberController {
 		// otherwise return 404 since it wasn't
 		return new ResponseEntity<Member>(new Member(), HttpStatus.NOT_FOUND);
 	}
+	 
+    public  static  void removeMemberFromRepo(Member s){
+        LoadMemberRepoMemory();
+        MemberRepo.remove(s);
+        //call db and remove
+    }
+	
+	@RequestMapping(value = "/Member", method = RequestMethod.DELETE)
+	    public String getMembers(@RequestParam(name = "Id") long id) {
+	        LoadMemberRepoMemory();
 
-	// @RequestMapping(value = "/Member", method = RequestMethod.POST)
-	// public List<Member> saveLocation(@RequestBody Member x) {
-	// saveIntoMemberRepo(x);
-	// return MemberRepo;
-	// }
-
-	// ***
-
+	        for (Member r : MemberRepo) {
+	            if (r.getId() == id) {
+	                removeMemberFromRepo(r);
+	                return "Success";
+	            }
+	        }
+	        return  "Failed!";
+	    }
+	
 }

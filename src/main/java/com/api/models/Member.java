@@ -9,8 +9,13 @@ public class Member {
 	private String phone1;
 	private String phone2;
 	private String email;
-	
-	public Member(long id, String name ,String middleInitial, String lastName, String homeAddress, String homePhone, String cellPhone, String email){
+
+	public Member() {
+
+	}
+
+	public Member(long id, String name, String middleInitial, String lastName, String homeAddress, String homePhone,
+			String cellPhone, String email) {
 		this.Id = id;
 		this.name = name;
 		this.middleInitial = middleInitial;
@@ -18,31 +23,35 @@ public class Member {
 		this.address = homeAddress;
 		this.phone1 = homePhone;
 		this.phone2 = cellPhone;
-		this.email =  email;
-}
-	
-		public long getId(){
+		this.email = email;
+	}
+
+	public long getId() {
 		return this.Id;
 	}
-	public String getname(){
+
+	public String getname() {
 		return this.name;
 	}
-	public String getmiddleInitial(){
+
+	public String getmiddleInitial() {
 		return this.middleInitial;
 	}
-	public String getlastName(){
+
+	public String getlastName() {
 		return this.lastName;
 	}
-	public String getphone1(){
+
+	public String getphone1() {
 		return this.phone1;
 	}
-	public String getphone2(){
+
+	public String getphone2() {
 		return this.phone2;
 	}
-	public String getemail(){
+
+	public String getemail() {
 		return this.email;
 	}
-	
-	
-		
+
 }

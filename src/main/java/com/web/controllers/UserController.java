@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 
 @Controller
-@RequestMapping(value = "/web")
+@RequestMapping(value = "/web/")
 public class UserController {
 
 	@RequestMapping(value = "/user")

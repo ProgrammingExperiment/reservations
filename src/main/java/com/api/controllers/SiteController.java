@@ -14,7 +14,7 @@ public class SiteController {
 
     /**
      * Add delete method
-     * Add update method
+     * Add update methods
      */
 
     //this will hold our app's Memory
@@ -36,28 +36,49 @@ public class SiteController {
         siteRepo.add(s);
     }
 
-    @RequestMapping(value = "/sites")
+    public  static  void removeSiteFromRepo(Site s){
+        recallSiteRepoMemory();
+        siteRepo.remove(s);
+        //call db and remove
+    }
+
+    @RequestMapping(value = "/site", method = RequestMethod.DELETE)
+    public String getSites(@RequestParam(name = "id") long id) {
+        recallSiteRepoMemory();
+
+        for (Site r : siteRepo) {
+            if (r.getId() == id) {
+                removeSiteFromRepo(r);
+                return "Success";
+            }
+        }
+        return  "Failed!";
+    }
+
+    @RequestMapping(value = "/sites", method = RequestMethod.GET)
     public List<Site> getSites() {
         recallSiteRepoMemory();
         return siteRepo;
     }
 
     @RequestMapping(value = "/site", method = RequestMethod.GET)
-    public ResponseEntity<Site> getLocation(@RequestParam(name = "location") String location) {
+    public Site getLocation(@RequestParam(name = "location") String location) {
 
         // call out your app memory, so we can remember
         // what we may have done in any past calls to the app
         recallSiteRepoMemory();
 
         //return the site, if it's found
+        // [ sites | site | site | site ]
+        // call the DB and see if location exists there
         for (Site r : siteRepo) {
             if (r.getName().equalsIgnoreCase(location)) {
-                return new ResponseEntity<Site>(r, HttpStatus.OK);
+                return  r;
             }
         }
 
         // otherwise return 404 since it wasn't
-        return new ResponseEntity<Site>(new Site(), HttpStatus.NOT_FOUND);
+        return new Site();
     }
 
     @RequestMapping(value = "/site", method = RequestMethod.POST)

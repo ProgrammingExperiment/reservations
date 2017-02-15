@@ -21,6 +21,8 @@ public class MembershipController {
 		// once we load it we will not reload it
 		if (membershipRepo.isEmpty()) {
 			membershipRepo.add(new Membership(1, "Cancun", "Paris"));
+			membershipRepo.add(new Membership(2, "Chandler", "Paris"));
+			membershipRepo.add(new Membership(3, "Mesa", "Paris"));
 
 		}
 	}
@@ -31,7 +33,7 @@ public class MembershipController {
 		return membershipRepo;
 	}
 
-	@RequestMapping(value = "/membership", method = RequestMethod.GET)
+	@RequestMapping(value = "/memberships", method = RequestMethod.GET)
 	public ResponseEntity<Membership> getMembership(@RequestParam(name = "id") Long id) {
 
 		// call out your app memory, so we can remember
@@ -45,6 +47,23 @@ public class MembershipController {
 			}
 		}
 		return new ResponseEntity<Membership>(new Membership(), HttpStatus.NOT_FOUND);
+	}
+	
+	@RequestMapping(value = "/memberships", method = RequestMethod.DELETE)
+    public String getMembership(@RequestParam(name = "id") long id) {
+        recallMemRepoMemory();
+      for (Membership r : membershipRepo) {
+            if (r.getId() == id) {
+                removeMembershipFromRepo(r);
+                return "Success";
+            }
+      }
+	 return  "Failed!";
+	}
+	public static void removeMembershipFromRepo(Membership r) {
+        recallMemRepoMemory();
+        membershipRepo.remove(r);
+		
 	}
 
 	// Saving items to the memory

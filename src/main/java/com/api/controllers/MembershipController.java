@@ -2,7 +2,6 @@ package com.api.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +26,7 @@ public class MembershipController {
 	}
 
 	@RequestMapping(value = "/memberships")
-	public List<Membership> getMembership1() {
+	public List<Membership> getMemberships() {
 		recallMemRepoMemory();
 		return membershipRepo;
 	}
@@ -53,6 +52,5 @@ public class MembershipController {
 		recallMemRepoMemory();
 		membershipRepo.add(s);
 	}
-
 
 }

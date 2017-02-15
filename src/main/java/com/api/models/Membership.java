@@ -8,7 +8,6 @@ public class Membership {
 	public Membership() {
 
 	}
-
 	public Membership(long id, String past, String future) {
 		this.Id = id;
 		this.past = past;

@@ -10,6 +10,10 @@ public class Member {
 	private String phone2;
 	private String email;
 
+	public Member() {
+
+	}
+
 	public Member(long id, String name, String middleInitial, String lastName, String homeAddress, String homePhone,
 			String cellPhone, String email) {
 		this.Id = id;

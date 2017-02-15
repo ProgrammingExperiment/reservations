@@ -42,14 +42,14 @@ public class MemberController {
 		MemberRepo.add(s);
 	}
 
-	@RequestMapping(value = "/Members")
+	@RequestMapping(value = "/members")
 	public List<Member> getMembers() {
 		LoadMemberRepoMemory();
 		return MemberRepo;
 	}
 
-	@RequestMapping(value = "/Member", method = RequestMethod.GET)
-	public ResponseEntity<Member> getMember(@RequestParam(name = "Id") long Id) {
+	@RequestMapping(value = "/member", method = RequestMethod.GET)
+	public ResponseEntity<Member> getMember(@RequestParam(name = "id") long Id) {
 
 		// call out your app memory, so we can remember
 		// what we may have done in any past calls to the app
@@ -72,8 +72,8 @@ public class MemberController {
         //call db and remove
     }
 	
-	@RequestMapping(value = "/Member", method = RequestMethod.DELETE)
-	    public String getMembers(@RequestParam(name = "Id") long id) {
+	@RequestMapping(value = "/member", method = RequestMethod.DELETE)
+	    public String getMembers(@RequestParam(name = "id") long id) {
 	        LoadMemberRepoMemory();
           for (Member r : MemberRepo) {
 	            if (r.getId() == id) {

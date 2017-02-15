@@ -7,6 +7,10 @@ public class User {
 	public User() {
 
 	}
+	public User(long id, String username) {
+		this.username=username;
+		this.id	= id;
+	}
 
 	public User(String username) {
 		this.username = username;

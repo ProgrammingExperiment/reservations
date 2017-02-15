@@ -7,10 +7,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.web.models.*;
 
 @Controller
 @RequestMapping(value = "/web")
 public class UserController {
+
+	public static List<User> userRepo = new ArrayList<>();
+
+    public void recallUserRepo(){
+        if(userRepo.isEmpty()){
+            userRepo.add(new User(1,"alfredo"));
+            userRepo.add(new User(2,"luis"));
+            userRepo.add(new User(3,"shawn"));
+
+        }
+
+    }
 
 	@RequestMapping(value = "/user")
 	public String getUser(Model model) {

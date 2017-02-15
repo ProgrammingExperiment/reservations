@@ -75,8 +75,7 @@ public class MemberController {
 	@RequestMapping(value = "/Member", method = RequestMethod.DELETE)
 	    public String getMembers(@RequestParam(name = "Id") long id) {
 	        LoadMemberRepoMemory();
-
-	        for (Member r : MemberRepo) {
+          for (Member r : MemberRepo) {
 	            if (r.getId() == id) {
 	                removeMemberFromRepo(r);
 	                return "Success";

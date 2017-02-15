@@ -5,6 +5,9 @@ public class Membership {
 	private String past;
 	private String future;
 
+	public Membership() {
+
+	}
 	public Membership(long id, String past, String future) {
 		this.Id = id;
 		this.past = past;
@@ -21,5 +24,10 @@ public class Membership {
 
 	public String getFuture() {
 		return this.future;
+	}
+
+	public String getMembership1() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
